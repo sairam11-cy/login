@@ -72,6 +72,7 @@ public class login extends AppCompatActivity {
                         else
                         {
                             Toast.makeText(login.this, "Error!"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                       progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
