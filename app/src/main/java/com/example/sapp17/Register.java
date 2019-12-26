@@ -1,9 +1,11 @@
 package com.example.sapp17;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,7 +34,7 @@ ProgressBar progressBar;
     MEmail=findViewById(R.id.email);
     MPassword=findViewById(R.id.password);
     MPhone=findViewById(R.id.phone);
-    MRegisterbtn=findViewById(R.id.registerbit);
+    MRegisterbtn=findViewById(R.id.loginbit);
     MLoginbtn=findViewById(R.id.creatText);
 
     firebaseAuth=FirebaseAuth.getInstance();
@@ -43,6 +45,7 @@ ProgressBar progressBar;
         finish();
     }
     MRegisterbtn .setOnClickListener(new View.OnClickListener() {
+        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
         public void onClick(View v) {
             String email=MEmail.getText().toString().trim();
@@ -50,10 +53,12 @@ ProgressBar progressBar;
             if(TextUtils.isEmpty(email))
             {
                 MEmail.setError("Email is Required");
+                return;
             }
             if(TextUtils.isEmpty(password))
             {
                 MPassword.setError("password is required");
+                return;
             }
             if(password.length()<6)
             {
@@ -75,9 +80,20 @@ ProgressBar progressBar;
                     }
                 }
             });
+
+
+
+
+
+
         }
     });
-
+        MLoginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),login.class));
+            }
+        });
 
 
     }
