@@ -1,14 +1,12 @@
 package com.example.sapp17;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.firebase.auth.FirebaseAuth;
+import androidx.appcompat.app.AppCompatActivity;
 
-import javax.security.auth.login.LoginException;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),login.class));
+        startActivity(new Intent(getApplicationContext(),slide1.class));
     finish();
     }
 }

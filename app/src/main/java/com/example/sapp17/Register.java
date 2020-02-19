@@ -1,9 +1,5 @@
 package com.example.sapp17;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +11,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -70,11 +70,18 @@ String userid;
             if(TextUtils.isEmpty(password))
             {
                 MPassword.setError("password is required");
+
                 return;
             }
             if(password.length()<6)
             {
                 MPassword.setError("pass must greater than 6 char");
+                return;
+            }
+            if(phone.isEmpty() || phone.length() < 10){
+
+                MPhone.setError("Enter a valid mobile");
+                MPhone.requestFocus();
                 return;
             }
             progressBar.setVisibility(View.VISIBLE);
@@ -90,12 +97,12 @@ String userid;
                         user.put("fullname",fullname);
                         user.put("email",email);
                         user.put("phone",phone);
-                       documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                           @Override
-                           public void onSuccess(Void aVoid) {
-                               Log.d("TAG","Onsuccess:user profile is created for"+ userid);
-                           }
-                       });
+                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d("TAG","Onsuccess:user profile is created for"+ userid);
+                            }
+                        });
 
                         startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     }
@@ -107,18 +114,17 @@ String userid;
                     }
                 }
             });
-
-
-
-
-
-
+            Intent intent = new Intent(Register.this, VerifyPhoneActivity.class);
+            intent.putExtra("email",email);
+            intent.putExtra("password",password);
+            intent.putExtra("mobile",phone);
+            startActivity(intent);
         }
     });
         MLoginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),slide1.class));
+                startActivity(new Intent(getApplicationContext(),login.class));
             }
         });
 

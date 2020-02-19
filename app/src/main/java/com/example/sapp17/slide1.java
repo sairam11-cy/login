@@ -26,6 +26,6 @@ public class slide1 extends AppCompatActivity {
     }
 
     public void new1(View view) {
-        startActivity(new Intent(getApplicationContext(),CandW.class));
+        startActivity(new Intent(getApplicationContext(),Register.class));
     }
 }

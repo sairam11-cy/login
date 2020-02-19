@@ -82,7 +82,7 @@ public class login extends AppCompatActivity {
         MCreatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),CandW.class));
+                startActivity(new Intent(getApplicationContext(),slide1.class));
             }
         });
 
