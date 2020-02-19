@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="creat account"
-        android:textColor="#311B92"
+        android:textColor="#FFEB3B"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -121,7 +121,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Already Register ? login here"
-        android:textColor="#827717"
+        android:textColor="#FFEB3B"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.553"
@@ -160,10 +160,11 @@
         android:padding="10dp"
         android:background="#000"
         android:textColorHint="#FFF"
-        android:inputType="textPhonetic"
+        android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
